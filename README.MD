@@ -2,6 +2,7 @@
 This is a sample project to build a hello world on docker
 
 
+
 **Build**
 docker build -t springland/hello-world-docker  .
 
@@ -28,4 +29,21 @@ The below command can help to check what could be wrong
 
 docker run -it --entrypoint /bin/bash  springland/hello-world-docker -s
 
+
+kubernets
+
+create deployment.yaml
+kubectl create deployment demo --image=springguides/demo --dry-run -o=yaml > deployment.yaml
+
+echo --- >> deployment.yaml 
+
+kubectl create service clusterip hello-world-k8s --tcp=8080:8080 --dry-run -o=yaml >> deployment.yaml
+
+Deploy
+kubectl apply -f deployment.yaml
+
+Forward port
+kubectl port-forward service/hello-world-k8s 8080:8080
+
+ 
 
