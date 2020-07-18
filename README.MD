@@ -16,7 +16,12 @@ don't forget to use docker inpsect to check the network setting
 
 http://localhost:8080/hello
 curl http://localhost/hello
- 
+
+
+push to docker hub
+
+docker login -u usrname -p password
+docker push springland/hello-world-docker 
  
 
 The below command can help to check what could be wrong
